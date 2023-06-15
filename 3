@@ -1,0 +1,24 @@
+import pygame
+
+# Initialize Pygame
+pygame.init()
+
+# Set screen size
+screen = pygame.display.set_mode((400, 300))
+
+# Game loop
+running = True
+while running:
+    # Handle events
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    # Clear the screen
+    screen.fill((255, 255, 255))
+
+    # Update the screen
+    pygame.display.update()
+
+# Quit Pygame
+pygame.quit()

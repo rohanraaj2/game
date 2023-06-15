@@ -1,0 +1,39 @@
+import pygame
+
+BLEU_CIEL = (135, 206, 250)
+
+FENETRE_LARGEUR = 800
+FENETRE_HAUTEUR = 600
+
+FLAPPY_LARGEUR = 60
+FLAPPY_HAUTEUR = 51
+
+pygame.init()
+
+fenetre_taille = (FENETRE_LARGEUR, FENETRE_HAUTEUR)
+fenetre = pygame.display.set_mode(fenetre_taille)
+pygame.display.set_caption('FLAPPY')
+
+image = pygame.image.load('images/bird_wing_mid.png').convert_alpha(fenetre)
+image = pygame.transform.scale(image, (FLAPPY_LARGEUR, FLAPPY_HAUTEUR))
+
+fini = False
+temps = pygame.time.Clock()
+
+while not fini:
+
+    # --- Traiter entrées joueur
+    for evenement in pygame.event.get():
+        if evenement.type == pygame.QUIT:
+            fini = True
+
+    fenetre.fill(BLEU_CIEL)
+    fenetre.blit(image, (50, 50))
+
+    pygame.display.flip()
+
+    temps.tick(10)
+
+pygame.display.quit()
+pygame.quit()
+exit()

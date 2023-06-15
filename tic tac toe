@@ -1,0 +1,132 @@
+import turtle
+
+# Window size and title
+turtle.setup(width=600, height=600)
+turtle.title("Tic Tac Toe")
+turtle.penup()
+
+# Draw board
+turtle.goto(-200, 200)
+turtle.pendown()
+for i in range(3):
+    turtle.forward(400)
+    turtle.right(90)
+    turtle.forward(400)
+    turtle.right(90)
+turtle.right(90)
+turtle.forward(400)
+turtle.left(90)
+turtle.forward(400)
+turtle.left(90)
+turtle.forward(400)
+turtle.right(90)
+turtle.penup()
+
+# Set initial values for game state
+board = [" " for i in range(9)]
+turn = "X"
+
+# Define functions for each cell
+def cell_1():
+    global board, turn
+    if board[0] == " ":
+        board[0] = turn
+        turn = "O" if turn == "X" else "X"
+        draw_X_O(0)
+
+def cell_2():
+    global board, turn
+    if board[1] == " ":
+        board[1] = turn
+        turn = "O" if turn == "X" else "X"
+        draw_X_O(1)
+
+def cell_3():
+    global board, turn
+    if board[2] == " ":
+        board[2] = turn
+        turn = "O" if turn == "X" else "X"
+        draw_X_O(2)
+
+def cell_4():
+    global board, turn
+    if board[3] == " ":
+        board[3] = turn
+        turn = "O" if turn == "X" else "X"
+        draw_X_O(3)
+
+def cell_5():
+    global board, turn
+    if board[4] == " ":
+        board[4] = turn
+        turn = "O" if turn == "X" else "X"
+        draw_X_O(4)
+
+def cell_6():
+    global board, turn
+    if board[5] == " ":
+        board[5] = turn
+        turn = "O" if turn == "X" else "X"
+        draw_X_O(5)
+
+def cell_7():
+    global board, turn
+    if board[6] == " ":
+        board[6] = turn
+        turn = "O" if turn == "X" else "X"
+        draw_X_O(6)
+
+def cell_8():
+    global board, turn
+    if board[7] == " ":
+        board[7] = turn
+        turn = "O" if turn == "X" else "X"
+        draw_X_O(7)
+
+def cell_9():
+    global board, turn
+    if board[8] == " ":
+        board[8] = turn
+        turn = "O" if turn == "X" else "X"
+        draw_X_O(8)
+
+# Function to draw X or O
+
+
+def draw_X_O(cell):
+    turtle.pendown()
+    if board[cell] == "X":
+        turtle.goto(cell_coords[cell][0], cell_coords[cell][1])
+        turtle.left(45)
+        turtle.forward(100)
+        turtle.backward(50)
+        turtle.right(90)
+        turtle.forward(100)
+        turtle.backward(50)
+        turtle.left(45)
+    elif board[cell] == "O":
+        turtle.penup()
+        turtle.goto(cell_coords[cell][0], cell_coords[cell][1]+50)
+        turtle.pendown()
+        turtle.circle(50)
+    turtle.penup()
+
+
+# Set click event bindings
+cell_coords = [
+    [-150, 150],
+    [0, 150],
+    [150, 150],
+    [-150, 0],
+    [0, 0],
+    [150, 0],
+    [-150, -150],
+    [0, -150],
+    [150, -150],
+]
+
+for i in range(9):
+    turtle.onscreenclick(eval("cell_" + str(i+1)), btn=1, add=None)
+
+# Game loop
+turtle.mainloop()
